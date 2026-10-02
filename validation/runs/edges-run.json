@@ -2,7 +2,7 @@
   "schema_version": 1,
   "validation_date": "2026-10-02",
   "skill_root": "skills/paper-study",
-  "workspace": "/private/tmp/paper-study-validation-20261002",
+  "workspace": "validation-workspace",
   "constraints": {
     "network_used": false,
     "cross_case_sources_used": false,
