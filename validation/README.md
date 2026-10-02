@@ -32,6 +32,7 @@
 - [사용 요청](cases.json)과 [의미 중심 평가 기준](criteria.json)
 - [패키지 검사 결과](package-check.json)
 - [Codex 스킬 인식 결과](discovery-check.json)
+- [개인·랩실 저장소의 공개 다운로드 설치 결과](installation-check.json): 공식 `skill-installer`의 ZIP 다운로드로 각각 임시 설치했고, 스킬 파일 6개와 포함된 라이선스가 검증 패키지와 모두 일치했습니다. 배포 `main` 커밋은 `8ddb940`이며, 설치로 기존 개인 스킬을 덮어쓰지 않았습니다.
 - `outputs/`: 실제 사용자 답변, `runs/`: 실행 작업자가 보고한 참조·도구·확인 범위
 
 결과와 수치의 최종 원문 대조는 [results.json](results.json)에 기록합니다. 문구·제목·정규식 일치만으로 논문 해석의 정확도를 채점하지 않습니다. 공개 답변과 로그에서는 개인 절대 경로를 재현용 상대 경로로 치환하고, 논문 파일 링크는 입력 목록을 가리키도록 바꿨습니다. 분석 내용은 유지하며 변경 전후 해시는 [publication.json](publication.json)에 기록합니다. 로그의 `human_reading_checks`는 실제 수행 주체를 명확히 하도록 `agent_reading_checks`로 정정했습니다.
