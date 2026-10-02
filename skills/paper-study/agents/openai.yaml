@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Study"
+  short_description: "Evidence-based paper analysis and Korean study notes"
+  default_prompt: "Use $paper-study to analyze this paper into evidence-grounded Korean study notes."
