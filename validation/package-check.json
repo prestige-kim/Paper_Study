@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "files": {
+    "LICENSE": "830519b5890b9b9e62e984c0cdd5df77e3389304cf9ec6d53043547e237ad6e4",
+    "SKILL.md": "a38b9d3958ce17b86fa3a7997c1a1360345d1a169fae7e8cc3f0f65a01232b29",
+    "agents/openai.yaml": "02e2b4821989d00b75a2fe49d5ff35197c5883b6b30f1fcdd1b00bc23a7f44e3",
+    "references/comparison.md": "cd7ffd2f336b640a0147ce2ac3c9d290aef84d87b332a2d28175d06ca7fcc798",
+    "references/input-handling.md": "abbf3e4e51ee2321a5ab0ad1997821c292d3f15de0f47cba66865ba81e851f41",
+    "references/study-notes.md": "fe9114881b03111d0428f6fcc32a2058a129cced2980a2f53eaa1b85397d34d8"
+  },
+  "checks": [
+    "metadata",
+    "local_references",
+    "portable_paths",
+    "UI",
+    "standalone_license",
+    "identical_copy",
+    "reject_missing_license",
+    "reject_broken_reference"
+  ]
+}

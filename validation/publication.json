@@ -1,0 +1,72 @@
+{
+  "changes": [
+    "Personal absolute paths replaced by relative reconstruction paths",
+    "Input file Markdown links point to inputs.json because original papers and page images are excluded",
+    "human_reading_checks renamed agent_reading_checks to identify actual reviewer"
+  ],
+  "outputs": [
+    {
+      "file": "outputs/abstract_only.md",
+      "raw_sha256": "9fc8fca620d7175a47b9d1752f5922c8d1062c2a8e0d578515a0826c2395a441",
+      "published_sha256": "be89764810b7a79351768787b7c63130c77d767a3ed7fc2389f89cdf24e893a3",
+      "published_bytes": 3164,
+      "published_characters": 1469
+    },
+    {
+      "file": "outputs/comparison.md",
+      "raw_sha256": "e72491a58c5cc4ebcebc57b1d0142a01e21cea58260ea54fd34523cb58506a41",
+      "published_sha256": "f07e8288c440b0a16eeed579aaba307df6252142e0ea7bf3ee37f201d888cbaa",
+      "published_bytes": 18096,
+      "published_characters": 12055
+    },
+    {
+      "file": "outputs/critical.md",
+      "raw_sha256": "152117bea6543e9f42f1883df2e0b632556aebd404513288eea55fcf4a6c6f35",
+      "published_sha256": "327209427e9714fd4a178ef7124222c8b2c62372a192af044a6231f194a4539c",
+      "published_bytes": 15985,
+      "published_characters": 10004
+    },
+    {
+      "file": "outputs/image_only.md",
+      "raw_sha256": "f43b0902bd19b2d7da512d1e05d372c8106a94fe73aa464fbd7fee1b7d29f11b",
+      "published_sha256": "728e39ba2a90c5c0ef636b4e0ff1a61ea56319418c65a2bb0f4782f7ba446a8b",
+      "published_bytes": 2652,
+      "published_characters": 1301
+    },
+    {
+      "file": "outputs/missing.md",
+      "raw_sha256": "12c04d1ab66efa7a62bb4096309308a3266070fa29cb272b6e43165302fd57f9",
+      "published_sha256": "089d2ed5fe24b0135e11f009c8bb19b4939f9f1c643a88e4f7bbc31af1d0a6bc",
+      "published_bytes": 700,
+      "published_characters": 334
+    },
+    {
+      "file": "outputs/non_ml.md",
+      "raw_sha256": "a968f48d37dde263e0e6bbd66f31962e0938d44663dc5138e203b9e43fa82086",
+      "published_sha256": "17fed75b5499d6b0f663bf77f043db2b55e0a6c9f8555a84802757e818ea6c8a",
+      "published_bytes": 10888,
+      "published_characters": 5448
+    },
+    {
+      "file": "outputs/quick.md",
+      "raw_sha256": "cfba7f4ec87daa3e4ec535f4daac57ce3f96e52f1f709c5367162872d82d9765",
+      "published_sha256": "cfba7f4ec87daa3e4ec535f4daac57ce3f96e52f1f709c5367162872d82d9765",
+      "published_bytes": 4534,
+      "published_characters": 2431
+    },
+    {
+      "file": "outputs/review.md",
+      "raw_sha256": "169b743991792620ef56d15d56663fd6de32d0824f0c500a2ebf2205fe7a370c",
+      "published_sha256": "a816e820c6e4bca81a96a39d6387c2dea04f55cfa79fc99afe695161bd837157",
+      "published_bytes": 17337,
+      "published_characters": 8581
+    },
+    {
+      "file": "outputs/study.md",
+      "raw_sha256": "c62b0e2cd5e4e28a06d7de7ec219b5c3422887e38ac39964136860e8011ab2f4",
+      "published_sha256": "3399115c010eba9982188dba30f1013ee8861165d054fdbe59d442067cc3e90f",
+      "published_bytes": 23226,
+      "published_characters": 12685
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "validation_date": "2026-10-02",
+  "skill_root": "skills/paper-study",
+  "workspace": "/private/tmp/paper-study-validation-20261002",
+  "constraints": {
+    "network_used": false,
+    "cross_case_sources_used": false,
+    "other_agents_outputs_read": false,
+    "source_or_skill_files_modified": false,
+    "commits_or_pushes": false,
+    "external_api_keys_used": false
+  },
+  "shared_tooling": {
+    "runtime_discovery": "mcp__codex_app__load_workspace_dependencies",
+    "python": "bundled-runtime/python3",
+    "references_read": {
+      "skill": "skills/paper-study/SKILL.md",
+      "study_notes": "skills/paper-study/references/study-notes.md",
+      "input_handling": "skills/paper-study/references/input-handling.md"
+    },
+    "output_writing": [
+      "apply_patch",
+      "Python pathlib (formatting correction and JSON report)"
+    ],
+    "source_access_rule": "Only the designated source was read for each case; no browsing and no paper knowledge imported from another case."
+  },
+  "cases": {
+    "A": {
+      "request": "이 논문의 연구 문제, 수학적 방법, 검증 근거와 한계를 한국어로 설명해줘.",
+      "source": "sources/canny.pdf",
+      "output": "outputs/non_ml.md",
+      "mode": "study notes scoped to the four requested aspects",
+      "paper_type": "mathematical and computational, non-ML",
+      "references_used": [
+        "skills/paper-study/SKILL.md",
+        "skills/paper-study/references/study-notes.md",
+        "skills/paper-study/references/input-handling.md"
+      ],
+      "tools": [
+        "exec_command: bundled Python + pdfplumber, metadata and layout text extraction for all 20 pages",
+        "exec_command: pdfplumber left/right column extraction for all 20 pages",
+        "exec_command: pdfplumber Page.to_image at 120 DPI for all 20 pages",
+        "exec_command: cat of extracted per-page columns, pages 1 through 20",
+        "view_image: actual source page renderings, 12 selected pages"
+      ],
+      "coverage": {
+        "status": "full supplied paper text; selective visual verification",
+        "pdf_pages": 20,
+        "text_pages_read": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "printed_pages": "679–698",
+        "pagination_mapping": "printed page = PDF file page + 678",
+        "sections_read": [
+          "Abstract",
+          "I",
+          "II",
+          "III",
+          "IV",
+          "V",
+          "VI",
+          "VII",
+          "VIII",
+          "IX",
+          "X",
+          "References"
+        ],
+        "appendix_supplied": false,
+        "supplement_or_cited_report_read": false,
+        "experiments_rerun": false,
+        "proof_verification_scope": "Read and explained the stated criteria, approximation assumptions, scaling relation, and Euler equation; did not independently solve the numerical optimization or verify every integral."
+      },
+      "visual_checks": {
+        "pages_rendered": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "pages_inspected": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          9,
+          10,
+          12,
+          15,
+          16,
+          18
+        ],
+        "items_verified": [
+          "Title, author, venue and November 1986 date on page 1",
+          "Fig. 1 multiple small extrema versus smoother Gaussian derivative response",
+          "SNR and localization equations (3) and (9)",
+          "Noise-zero-crossing spacing and maxima equations (12)–(14)",
+          "Step-filter scaling equation (21)",
+          "Euler equation (30)",
+          "Fig. 4 filter 6: Sigma*Lambda 1.12, r 0.576",
+          "Gaussian approximation equations (44)–(45): approximately 0.92 and 0.51; theoretical 20%/10% wording",
+          "Fig. 7 threshold/hysteresis qualitative comparison",
+          "Figs. 8–9 feature synthesis and scale captions",
+          "Fig. 11 circular versus six-orientation directional edge maps"
+        ]
+      },
+      "failures": [],
+      "issues_and_limits": [
+        "Embedded PDF extraction interleaves the two columns and contains noisy equation glyphs; per-column extraction and source page inspection resolved all equations/numbers used in the answer.",
+        "PDF metadata dates are 2009; publication year was taken from the visible paper header (1986), not the download/metadata date.",
+        "The source refers long integral forms to report [4], not supplied. Its contents were not reconstructed or sought online.",
+        "No benchmark accuracy was inferred from theoretical Sigma*Lambda or r; no universal-optimality claim was made.",
+        "Not all rendered pages or all proof steps were independently visually/mathematically verified."
+      ],
+      "outcome": "Completed source-grounded Korean explanation of research question, mathematical method, evidence and limitations."
+    },
+    "B": {
+      "request": "이 자료밖에 없고 인터넷은 사용할 수 없어. 이 논문의 실험 설계와 재현 가능성을 검토해줘.",
+      "source": "sources/abstract-only.txt",
+      "output": "outputs/abstract_only.md",
+      "mode": "critical/reproducibility request constrained to abstract-only input",
+      "references_used": [
+        "skills/paper-study/SKILL.md",
+        "skills/paper-study/references/study-notes.md",
+        "skills/paper-study/references/input-handling.md"
+      ],
+      "tools": [
+        "exec_command: cat of the sole supplied text file"
+      ],
+      "coverage": {
+        "status": "title plus paraphrased abstract only",
+        "full_supplied_text_read": true,
+        "original_abstract_read": false,
+        "methods_results_supplement_read": false,
+        "verifiable_experiment_protocol": false
+      },
+      "visual_checks": {
+        "applicable": false,
+        "reason": "No image or figure supplied."
+      },
+      "failures": [],
+      "issues_and_limits": [
+        "Source explicitly labels itself an abstract paraphrase, not methods/results.",
+        "3.57% is described as an ensemble test error without metric definition; top-1/top-5 and single-model association were not inferred.",
+        "Experimental rigor and reproducibility conclusions were withheld; missing information was labelled unavailable from this input, not absent from the publication.",
+        "No full reproduction checklist or unseen architecture, optimizer, split, or results were supplied."
+      ],
+      "outcome": "Completed bounded review; experimental validity and reproducibility remain undecidable from the provided input."
+    },
+    "C": {
+      "request": "missing-paper.pdf를 한국어로 심층 분석해줘. 현재 인터넷은 사용할 수 없어.",
+      "source": "sources/missing-paper.pdf",
+      "output": "outputs/missing.md",
+      "mode": "unavailable-input handling preserving requested deep-analysis scope",
+      "references_used": [
+        "skills/paper-study/SKILL.md",
+        "skills/paper-study/references/input-handling.md"
+      ],
+      "tools": [
+        "exec_command: bundled Python pathlib.Path.read_bytes on the exact supplied path"
+      ],
+      "coverage": {
+        "status": "unavailable",
+        "pages_read": 0,
+        "paper_identity_resolved": false
+      },
+      "visual_checks": {
+        "applicable": false,
+        "reason": "The PDF file could not be opened."
+      },
+      "failures": [
+        {
+          "operation": "normal read_bytes/open",
+          "exception": "FileNotFoundError",
+          "errno": 2,
+          "exit_code": 1,
+          "message": "No such file or directory",
+          "source_path": "sources/missing-paper.pdf"
+        }
+      ],
+      "issues_and_limits": [
+        "No accessible paper content. The answer requests the PDF or correct path and does not invent an identity or analysis."
+      ],
+      "outcome": "Completed accurate access-failure answer; substantive analysis requires a supplied source."
+    },
+    "D": {
+      "request": "이 논문 첫 페이지 이미지만 제공할 수 있어. 한국어로 요약해줘. 인터넷은 사용할 수 없어.",
+      "source": "sources/resnet-page1.png",
+      "output": "outputs/image_only.md",
+      "mode": "quick summary with first-page-only source limit",
+      "references_used": [
+        "skills/paper-study/SKILL.md",
+        "skills/paper-study/references/input-handling.md"
+      ],
+      "tools": [
+        "view_image: full first-page PNG, visually read title, authors, abstract, introduction and Fig. 1"
+      ],
+      "coverage": {
+        "status": "one page image only",
+        "pages_inspected": 1,
+        "printed_page": 770,
+        "content_read": [
+          "Title/authors/affiliation",
+          "CVPR open-access header",
+          "Abstract",
+          "Introduction beginning",
+          "Fig. 1 axes/curves/caption"
+        ],
+        "publication_year_verified": false,
+        "full_text_or_external_context_read": false
+      },
+      "visual_checks": {
+        "image_inspected": true,
+        "figures_inspected": [
+          "Fig. 1"
+        ],
+        "verified_interpretation": "CIFAR-10 plain networks: 56-layer error curves generally above 20-layer curves for both training and test; a motivation figure rather than residual-network improvement evidence.",
+        "exact_graph_values_estimated": false
+      },
+      "failures": [],
+      "issues_and_limits": [
+        "3.57% and other abstract performance statements are author reports, not independently checked results.",
+        "No residual-block formula, skip-connection implementation, metric definition or training protocol is visible, so none was reconstructed.",
+        "No full study schema, glossary, self-test or reproduction checklist was added to the narrow summary request."
+      ],
+      "outcome": "Completed Korean first-page summary with accurate visual interpretation and explicit coverage limitation."
+    }
+  }
+}

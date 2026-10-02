@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "codex_version": "codex-cli 0.159.3",
+  "name": "paper-study",
+  "scope": "repo",
+  "enabled": true,
+  "relative_path": ".agents/skills/paper-study/SKILL.md",
+  "interface": {
+    "displayName": "Paper Study",
+    "shortDescription": "Evidence-based paper analysis and Korean study notes",
+    "iconSmall": null,
+    "iconLarge": null,
+    "iconSmallUrl": null,
+    "iconLargeUrl": null,
+    "brandColor": null,
+    "defaultPrompt": "Use $paper-study to analyze this paper into evidence-grounded Korean study notes."
+  },
+  "model_turn_started": false
+}

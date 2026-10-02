@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "tested_runtime_commit": "4e97212de2f6a6fbf5e918aff70526fdcb591d69",
+  "tested_skill_git_tree": "7f1336932b4c6d24d3e0893ef4ca05f99962d964",
+  "reviewer": "root Codex agent; no human expert review",
+  "method": "Semantic review of complete outputs against supplied source text, actual central table/equation page images, and per-worker access/coverage records. This is a bounded behavior smoke evaluation, not a statistical accuracy benchmark.",
+  "summary": {
+    "cases": 9,
+    "passed": 9,
+    "failed": 0,
+    "papers": 4,
+    "core_modes": 4,
+    "package_checks": "pass",
+    "standalone_copy": "pass",
+    "codex_discovery": "pass",
+    "source_hashes_unchanged": true
+  },
+  "cases": [
+    {
+      "id": "quick",
+      "status": "pass",
+      "output": "outputs/quick.md",
+      "checks": "Residual addition/degradation explained; optional full-study scaffold omitted; metric, split, protocol and locator retained.",
+      "evidence": "ResNet Table 2: 34-layer plain 28.54 vs residual 25.03 ImageNet validation top-1, 10-crop; Table 4 single-model validation top-5 4.49 and Table 5 ensemble test top-5 3.57 remain distinct."
+    },
+    {
+      "id": "study",
+      "status": "pass",
+      "output": "outputs/study.md",
+      "checks": "Eq. (1) residual addition and Eq. (2) projection explained; important experiment conditions and author/analyst interpretations distinguished; conceptual self-tests supplied.",
+      "evidence": "ResNet-152 10-crop validation top-1/top-5 21.43/5.71 is separated from best evaluation; ResNet-110 CIFAR-10 best 6.43 vs five-run mean/std 6.61±0.16 and 1202-layer test 7.93 agree with Table 6."
+    },
+    {
+      "id": "critical",
+      "status": "pass",
+      "output": "outputs/critical.md",
+      "checks": "Criticism is tied to controlled comparisons and missing uncertainty/implementation information; reported training settings preserved; inaccessible appendix is not called an author omission.",
+      "evidence": "ResNet §3.4 batch 256, initial LR 0.1, weight decay 0.0001, momentum 0.9 and maximum 600k iterations retained; Fig. 4 center-crop curves distinguished from Table 2 10-crop; CIFAR-10 five-run reporting not generalized to ImageNet."
+    },
+    {
+      "id": "comparison",
+      "status": "pass",
+      "output": "outputs/comparison.md",
+      "checks": "Addition vs within-block concatenation distinguished; original vs pre-activation ResNet separated; inconsistent recipes and metrics contextualized; no universal winner.",
+      "evidence": "DenseNet Table 3 single-crop/10-crop parentheses handled correctly: DenseNet-201 22.58/6.34 vs 21.46/5.54; Table 2 original ResNet-110 mean 6.61 not confused with best 6.43 or pre-activation ResNet-1001 4.62. Fig. 3 treated as an efficiency trade-off, not an exact equal-size leaderboard."
+    },
+    {
+      "id": "non_ml",
+      "status": "pass",
+      "output": "outputs/non_ml.md",
+      "checks": "Canny treated as mathematical/computational filter design; assumptions, approximations and empirical illustration scoped; no invented SGD/training pipeline.",
+      "evidence": "Detection/localization/single-response criteria and white Gaussian noise assumptions retained; SNR/localization/maxima/Euler expressions follow inspected source; theoretical Sigma×Lambda and r are not renamed dataset accuracy. Full independent proof or optimization replication is not claimed."
+    },
+    {
+      "id": "abstract_only",
+      "status": "pass",
+      "output": "outputs/abstract_only.md",
+      "checks": "Coverage explicitly limited to the supplied abstract paraphrase; experimental validity/reproducibility withheld; missing full text requested.",
+      "evidence": "No top-1/top-5 definition, unseen architecture, hyperparameters or publication year inferred; 3.57 is kept as an author-reported ensemble test error rather than a verified complete-paper result."
+    },
+    {
+      "id": "missing",
+      "status": "pass",
+      "output": "outputs/missing.md",
+      "checks": "Normal source access attempted; unavailable input and zero pages read disclosed; no fabricated paper identity or analysis.",
+      "evidence": "Expected FileNotFoundError recorded in runs/edges-run.json. Correct-path/PDF request is the appropriate outcome."
+    },
+    {
+      "id": "image_only",
+      "status": "pass",
+      "output": "outputs/image_only.md",
+      "checks": "The image is actually read; partial coverage remains visible; unseen methods, table values and metric definitions are not reconstructed.",
+      "evidence": "Fig. 1 identified as CIFAR-10 plain 20/56-layer training/test curves, not residual-network improvement evidence; printed p. 770 observed; publication year and 3.57 metric definition not inferred from unavailable pages."
+    },
+    {
+      "id": "review",
+      "status": "pass",
+      "output": "outputs/review.md",
+      "checks": "Narrative review separated from new experiments/systematic review; article date separated from PDF conversion metadata; secondary findings attributed; no invented author training pipeline.",
+      "evidence": "2012-10 article date retained rather than 2018 PDF generation date. NELL's estimated 87% is scoped as the review's cited report. Fig. 5 values 85.5/64.1 remain unnamed performance percentages; analyst difference 21.4 percentage points is distinguished from the text's approximate wording."
+    }
+  ],
+  "infrastructure_notes": [
+    "Initial app-server discovery under read-only Codex home failed on SQLite state access; rerun with approved host access passed without a model turn.",
+    "The discovery helper supports --codex-executable for shell/PATH differences.",
+    "Poppler font-cache warnings were non-blocking; source page images remained readable and temporary cache configuration resolved warnings where applied.",
+    "Long extraction responses were reread in smaller page groups before conclusions."
+  ],
+  "not_verified": [
+    "Exact evaluator model ID or comparative model quality",
+    "Human expert review",
+    "All theorem proof steps or original training experiment replication",
+    "Complete scanned PDF and actual OCR engine",
+    "HTML full-text and online DOI/arXiv version resolution behavior",
+    "Pure theorem or qualitative study behavior",
+    "Other operating systems and other agent products"
+  ]
+}

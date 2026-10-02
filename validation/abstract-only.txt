@@ -1,0 +1,3 @@
+Available source: title and abstract only. Full text and supplement are not supplied.
+Paper: Deep Residual Learning for Image Recognition; He, Zhang, Ren, Sun.
+Paraphrased abstract: The authors propose learning residual functions relative to layer inputs to ease training of deep neural networks. They report ImageNet evaluations up to 152 layers and a 3.57% test error for an ensemble, along with analyses on CIFAR-10. This is an abstract-only paraphrase, not the methods or results sections.

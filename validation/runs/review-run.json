@@ -1,0 +1,144 @@
+{
+  "run_role": "forward_notes_additional_review_case",
+  "request": "이 리뷰 논문의 핵심 분류 체계와 연구 동향, 근거의 한계를 한국어로 분석해줘.",
+  "mode": "single-paper in-depth review analysis; paper-type-specific narrative review schema",
+  "artifact": "outputs/review.md",
+  "source": {
+    "path": "sources/review.pdf",
+    "access": "supplied local full-text PDF; read only",
+    "title": "빅데이터 활용을 위한 기계학습 기술동향",
+    "english_title": "Machine Learning Technology Trends for Big Data Processing",
+    "authors": [
+      "임수종 (S.J. Lim)",
+      "민옥기 (O.K. Min)"
+    ],
+    "publication": "전자통신동향분석 제27권 제5호",
+    "publication_date": "2012-10",
+    "date_evidence": "First page says 2012 and copyright 2012; main-text footer explicitly says volume 27, issue 5, October 2012.",
+    "version": "supplied ETRI-layout published article PDF; explicit revision identifier not present",
+    "doi": "not verified from the supplied article",
+    "pdf_file_pages": 9,
+    "printed_pages": "55–63",
+    "page_mapping": "PDF file p. 1 = printed p. 55, continuing through PDF p. 9 = printed p. 63",
+    "paper_type_observed": "Narrative technology-trends review: describes existing systems/services and domain adaptation methods; no new author experiment, formal search protocol or meta-analysis is reported.",
+    "paper_type_identification_basis": "Read abstract/contents and sections I–V before selecting the article-specific organization. Category and date were not inferred from the filename.",
+    "supplements": "No supplied appendices or separate supplements are cited as necessary for the requested scope. Original works referenced in the bibliography were not provided or read."
+  },
+  "skill_references_used": [
+    {
+      "path": "skills/paper-study/SKILL.md",
+      "access_in_this_case": "Previously read by this agent in the same session; retained instructions applied without rereading.",
+      "relevance": "Paper type checks, exact source identity, evidence labels, locators, proportional depth and critical evaluation."
+    },
+    {
+      "path": "skills/paper-study/references/input-handling.md",
+      "access_in_this_case": "Previously read by this agent in the same session; retained instructions applied without rereading.",
+      "relevance": "Local PDF extraction, visual verification, page mapping and missing-information labels."
+    },
+    {
+      "path": "skills/paper-study/references/study-notes.md",
+      "access_in_this_case": "Previously read by this agent in the same session; retained instructions applied without rereading.",
+      "relevance": "In-depth method/evidence/critique guidance adapted to a narrative review. Training pipelines and empirical reproduction checklists were not forced onto this paper."
+    }
+  ],
+  "reference_selection": {
+    "comparison_reference_read": false,
+    "reason": "The task analyzes one supplied review article. It does not request an independent multi-paper comparison or literature search. The article's cited works were not read as additional sources."
+  },
+  "actual_source_coverage": {
+    "text_read": "Complete local layout text extraction: abstract/contents, sections I–V, terminology/abbreviation boxes and full bibliography on PDF pp. 1–9 / printed pp. 55–63.",
+    "sections": [
+      "I. 머리말",
+      "II. 병렬처리 기반 기계학습",
+      "III. 빅데이터 기반 기계학습 프로젝트",
+      "IV. Domain Adaptation 기법",
+      "V. 맺음말"
+    ],
+    "central_figures_visually_checked": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "central_tables_visually_checked": [
+      1
+    ],
+    "visually_checked_pdf_file_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "visual_checks": [
+      "Title, authors, year, journal volume/issue/month and printed page mapping",
+      "SystemML application/compiler/runtime schematic",
+      "NELL subsystem/integrator/knowledge-base loop and example beliefs table",
+      "Ford service-concept figure and BigML four-stage workflow",
+      "NYT versus Reuters training with common NYT evaluation: figure labels 85.5% and 64.1%, absence of explicit metric name",
+      "LININT expression and visually legible prior/feature-augmentation weight notation omitted by text extraction",
+      "Final discussion and bibliography entries [1]–[11]"
+    ],
+    "not_read": "No original cited study, project webpage, dataset webpage, external paper, previous answer artifact or other agent output was used.",
+    "scope_limit": "Analysis establishes what the review reports, not the validity of the original cited experiments or present-day product status."
+  },
+  "output_design": {
+    "taxonomy": "Three article-level axes and five domain-adaptation section families; explicitly identifies mixed levels and potential overlap rather than declaring an exhaustive mutually exclusive taxonomy.",
+    "trends": "Historical 2012 directions only: distributed execution, persistent knowledge learning, service access and domain reuse.",
+    "evidence": "Clearly separates review synthesis, cited project results, diagram/workflow evidence and analyst criticism. No cited experiment is attributed to the review authors.",
+    "limitations": "Distinguishes author-described technical limitations from analyst assessment of review selection, heterogeneous sources, missing common benchmarks, metric ambiguity, uncertainty and historical scope."
+  },
+  "tools_used_this_case": [
+    "functions.exec orchestration",
+    "exec_command: pdfinfo for available metadata and page count",
+    "exec_command: mkdir for the isolated temporary extraction/render/cache directory",
+    "exec_command: pdftotext -layout for local full-text extraction",
+    "exec_command: sed for complete page-spanning text reading",
+    "exec_command: rg for focused checks of dates, performance, limitations and review-method terms",
+    "exec_command: pdftoppm for PDF page rendering with temporary XDG_CACHE_HOME",
+    "view_image for all nine rendered pages",
+    "apply_patch for review.md and review-run.json",
+    "exec_command: Python JSON parsing and artifact size checks"
+  ],
+  "temporary_work_directory": "work/review",
+  "execution_failures": [],
+  "execution_warnings": [],
+  "observed_source_issues": [
+    {
+      "issue": "PDF creation/modification metadata date is April 2018, whereas the article explicitly identifies October 2012 publication.",
+      "handling": "Used the article's internal publication date. Did not treat the PDF file generation timestamp as publication year."
+    },
+    {
+      "issue": "Text extraction omitted some embedded math for prior/feature-augmentation notation on PDF pp. 7–8.",
+      "handling": "Inspected the rendered pages. Output keeps the taxonomy conceptual and only reproduces the verified LININT expression; did not reconstruct absent equations from memory."
+    },
+    {
+      "issue": "Figure 5 has performance percentages but no named metric. Main text says roughly 20% degradation; the shown values are 85.5% and 64.1%.",
+      "handling": "Called them performance values, not accuracy or F1; separately labeled the analyst arithmetic difference of 21.4 percentage points."
+    },
+    {
+      "issue": "NELL precision/accuracy values are secondary reported numbers; one passage explicitly calls 87% an estimate.",
+      "handling": "Preserved estimated wording and stated that sample, operational metric definition, timepoint and controlled comparison are not reported in this review. Did not attribute this absence to the uninspected primary study."
+    },
+    {
+      "issue": "No formal literature search or common method/system benchmark is reported; bibliography contains heterogeneous academic, project and news/workshop sources.",
+      "handling": "Classified the article as a narrative technology review and scoped its conclusions to historical conceptual mapping and examples."
+    }
+  ],
+  "constraints_observed": {
+    "browsing_performed": false,
+    "other_paper_sources_read": false,
+    "prior_output_answers_read_or_reused": false,
+    "source_downloaded": false,
+    "source_modified": false,
+    "skill_or_repository_edited": false,
+    "temporary_files_created_outside_validation_workspace": false,
+    "human_questions_sent": false,
+    "git_commit_or_push_performed": false
+  }
+}

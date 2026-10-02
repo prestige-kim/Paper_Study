@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "completed_at_utc": "2026-10-02T05:16:11.301181+00:00",
+  "requests": [
+    {
+      "request": "이 논문의 실험 설계와 재현 가능성을 검토해줘. 보고된 설정과 확인할 수 없는 설정을 구분하고 근거를 연결해줘.",
+      "mode": "critical or reproduction review",
+      "output": "outputs/critical.md",
+      "source": "resnet.pdf"
+    },
+    {
+      "request": "이 두 논문의 방법과 성능 근거를 비교하고 어떤 조건에서 사용할지 설명해줘.",
+      "mode": "comparison",
+      "output": "outputs/comparison.md",
+      "sources": [
+        "resnet.pdf",
+        "densenet.pdf"
+      ]
+    }
+  ],
+  "skill_path": "skills/paper-study/SKILL.md",
+  "used_references": [
+    {
+      "path": "skills/paper-study/SKILL.md",
+      "purpose": "mode selection, evidence labels, coverage and locator discipline, final QA"
+    },
+    {
+      "path": "skills/paper-study/references/study-notes.md",
+      "purpose": "experimental evidence, critical evaluation, reproduction checklist"
+    },
+    {
+      "path": "skills/paper-study/references/comparison.md",
+      "purpose": "normalization, comparability, efficiency trade-offs, scenario conclusion"
+    },
+    {
+      "path": "skills/paper-study/references/input-handling.md",
+      "purpose": "local PDF identity, extraction, rendering, printed vs PDF pagination, missing appendix labels"
+    },
+    {
+      "path": "installed-skills/pdf/SKILL.md",
+      "purpose": "read-only PDF visual inspection; no PDF authoring or installation performed"
+    }
+  ],
+  "tools_used": [
+    "functions.exec",
+    "exec_command",
+    "apply_patch",
+    "view_image",
+    "Poppler pdftotext -layout",
+    "Poppler pdfinfo",
+    "Poppler pdftoppm -r 110 -png",
+    "shasum -a 256",
+    "Python 3 standard library for page splitting, text fixes, QA and JSON"
+  ],
+  "sources": [
+    {
+      "path": "sources/resnet.pdf",
+      "sha256_before": "51b5de45eb0b558b19c3affe49503cff50cb170a32de602983d6e2ec286942a7",
+      "sha256_after": "51b5de45eb0b558b19c3affe49503cff50cb170a32de602983d6e2ec286942a7",
+      "pages": 9,
+      "access": "full supplied main text; separate associated material not inspected",
+      "read_only_preserved": true
+    },
+    {
+      "path": "sources/densenet.pdf",
+      "sha256_before": "94d6252e5508eb047be64bbc7bd095a46064d0b51fc73206d9591578477aaee1",
+      "sha256_after": "94d6252e5508eb047be64bbc7bd095a46064d0b51fc73206d9591578477aaee1",
+      "pages": 9,
+      "access": "full supplied main text; separate associated material not inspected",
+      "read_only_preserved": true
+    }
+  ],
+  "actual_coverage": {
+    "resnet": {
+      "version": "CVPR 2016 CVF Open Access supplied PDF, printed pages 770-778; no arXiv revision or DOI in supplied source",
+      "text_read_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sections_read": [
+        "Abstract",
+        "1 Introduction",
+        "2 Related Work",
+        "3.1 Residual Learning",
+        "3.2 Identity Mapping by Shortcuts",
+        "3.3 Network Architectures",
+        "3.4 Implementation",
+        "4.1 ImageNet Classification",
+        "4.2 CIFAR-10 and Analysis",
+        "4.3 Object Detection on PASCAL and MS COCO"
+      ],
+      "references_page": 9,
+      "references_handling": "checked end structure and reference identities; not summarized individually",
+      "rendered_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "visually_inspected_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unavailable_material": [
+        "appendix referenced by section 4.3 and Tables 7-8",
+        "code, checkpoints, training logs and actual datasets"
+      ],
+      "coverage_limit": "The supplied main paper is fully accessible, but the full publication including the referenced appendix was not available."
+    },
+    "densenet": {
+      "version": "CVPR 2017 CVF Open Access supplied PDF, printed pages 4700-4708; no arXiv revision or DOI in supplied source",
+      "text_read_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sections_read": [
+        "Abstract",
+        "1 Introduction",
+        "2 Related Work",
+        "3 DenseNets",
+        "4.1 Datasets",
+        "4.2 Training",
+        "4.3 Classification Results on CIFAR and SVHN",
+        "4.4 Classification Results on ImageNet",
+        "5 Discussion",
+        "6 Conclusion"
+      ],
+      "references_page": 9,
+      "references_handling": "read references [11]-[13] to distinguish original ResNet, pre-activation ResNet, and stochastic depth; no external cited paper downloaded",
+      "rendered_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "visually_inspected_pdf_pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "not_visually_inspected_pdf_pages": [
+        2,
+        9
+      ],
+      "unavailable_material": [
+        "linked repository and pretrained models were not accessed",
+        "actual code environment, checkpoints, training logs and datasets"
+      ],
+      "coverage_limit": "No direct model execution, external repository inspection, or independent performance replication."
+    }
+  },
+  "visual_checks": [
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 1,
+      "artifacts": [
+        "title and authors",
+        "CVF Open Access watermark",
+        "printed footer 770",
+        "Figure 1"
+      ],
+      "checked": "identity, page mapping, training/test axes and plain-20/56 pattern"
+    },
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 2,
+      "artifacts": [
+        "Figure 2"
+      ],
+      "checked": "identity shortcut, element-wise sum, post-addition ReLU"
+    },
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 3,
+      "artifacts": [
+        "Equations 1-2"
+      ],
+      "checked": "plus signs, residual mapping, identity vs projection, input/output notation"
+    },
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 4,
+      "artifacts": [
+        "Figure 3",
+        "section 3.4"
+      ],
+      "checked": "plain/residual architecture, downsampling shortcuts and reported training settings"
+    },
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 5,
+      "artifacts": [
+        "Table 1",
+        "Figure 4",
+        "Table 2"
+      ],
+      "checked": "architectural stage counts and FLOPs, center-crop vs 10-crop protocol, matched plain/residual values"
+    },
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 6,
+      "artifacts": [
+        "Tables 3-5",
+        "Figure 5"
+      ],
+      "checked": "top-1/top-5 columns, 10-crop vs best single-model vs ensemble distinction, bottleneck block"
+    },
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 7,
+      "artifacts": [
+        "Table 6",
+        "section 4.2"
+      ],
+      "checked": "ResNet-110 best/mean/std and 5-run caption, parameters, 1202 result, CIFAR training schedule"
+    },
+    {
+      "source": "resnet.pdf",
+      "pdf_page": 8,
+      "artifacts": [
+        "Figures 6-7",
+        "Tables 7-8"
+      ],
+      "checked": "training/test curve styles, layer-response standard deviation, VOC and COCO table metrics and values"
+    },
+    {
+      "source": "densenet.pdf",
+      "pdf_page": 1,
+      "artifacts": [
+        "title and authors",
+        "CVF Open Access watermark",
+        "printed footer 4700",
+        "Figure 1"
+      ],
+      "checked": "identity, page mapping, dense connectivity illustration"
+    },
+    {
+      "source": "densenet.pdf",
+      "pdf_page": 3,
+      "artifacts": [
+        "Figure 2",
+        "Equations 1-2"
+      ],
+      "checked": "dense block boundaries and transitions, concatenation rather than sum notation"
+    },
+    {
+      "source": "densenet.pdf",
+      "pdf_page": 4,
+      "artifacts": [
+        "Table 1",
+        "section 3"
+      ],
+      "checked": "ImageNet dense-block counts, growth rates, BN-ReLU-Conv footnote, bottleneck and compression"
+    },
+    {
+      "source": "densenet.pdf",
+      "pdf_page": 5,
+      "artifacts": [
+        "Table 2",
+        "sections 4.1-4.2"
+      ],
+      "checked": "C10 vs C10+ and C100 vs C100+ columns, variant rows, dropout footnote, final train/test and repeated-evaluation statement"
+    },
+    {
+      "source": "densenet.pdf",
+      "pdf_page": 6,
+      "artifacts": [
+        "Table 3",
+        "Figure 3",
+        "section 4.4"
+      ],
+      "checked": "single-crop outside parentheses vs 10-crop inside, parameter/FLOP axes and relative efficiency; no graph decimal reconstruction"
+    },
+    {
+      "source": "densenet.pdf",
+      "pdf_page": 7,
+      "artifacts": [
+        "Figure 4",
+        "section 5",
+        "footnote 2"
+      ],
+      "checked": "DenseNet variants, pre-activation ResNet comparison, training/test curve distinction, implementation memory limitation"
+    },
+    {
+      "source": "densenet.pdf",
+      "pdf_page": 8,
+      "artifacts": [
+        "Figure 5",
+        "section 6"
+      ],
+      "checked": "source vs target layer axes and normalized absolute-weight color legend, feature-transfer future-work statement"
+    }
+  ],
+  "execution_failures": [],
+  "execution_warnings": [
+    {
+      "tool": "pdftoppm",
+      "message": "Fontconfig error: No writable cache directories for default Homebrew and user font caches",
+      "exit_code": 0,
+      "effect": "Rendered PNGs were created and inspected as legible; no rendering or source-access failure."
+    },
+    {
+      "tool": "functions.exec output",
+      "message": "The first full ResNet text response and a combined DenseNet response exceeded output budget and were truncated.",
+      "recovery": "Split extracted text by PDF form-feed pages and reread relevant page groups; DenseNet page 6 reread separately. No analysis relies on an unread truncated method/evidence section."
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs/critical.md",
+      "artifact_type": "complete Korean user answer, not test-only status",
+      "raw_output_sha256": "152117bea6543e9f42f1883df2e0b632556aebd404513288eea55fcf4a6c6f35",
+      "raw_output_bytes": 16034,
+      "raw_output_characters": 10053,
+      "published_sha256": "327209427e9714fd4a178ef7124222c8b2c62372a192af044a6231f194a4539c"
+    },
+    {
+      "path": "outputs/comparison.md",
+      "artifact_type": "complete Korean user answer, not test-only status",
+      "raw_output_sha256": "e72491a58c5cc4ebcebc57b1d0142a01e21cea58260ea54fd34523cb58506a41",
+      "raw_output_bytes": 18196,
+      "raw_output_characters": 12155,
+      "published_sha256": "f07e8288c440b0a16eeed579aaba307df6252142e0ea7bf3ee37f201d888cbaa"
+    }
+  ],
+  "quality_checks": [
+    {
+      "artifact": "critical.md",
+      "nonempty_full_answer": true,
+      "balanced_inline_math_delimiters": true,
+      "consistent_table_column_counts": true,
+      "placeholder_check_passed": true
+    },
+    {
+      "artifact": "comparison.md",
+      "nonempty_full_answer": true,
+      "balanced_inline_math_delimiters": true,
+      "consistent_table_column_counts": true,
+      "placeholder_check_passed": true
+    }
+  ],
+  "agent_reading_checks": [
+    "central numerical evidence checked against rendered tables and captions",
+    "each major quantitative result has page plus table/figure/section locators",
+    "author claims, reported results and analyst interpretations separated",
+    "same benchmark with differing protocols treated as contextual evidence",
+    "ResNet missing appendix separated from author omission",
+    "code availability claims not treated as verified repository access",
+    "original ResNet distinguished from pre-activation and stochastic-depth variants"
+  ],
+  "training_or_inference_executed": false,
+  "network_or_download_used": false,
+  "skill_edits": false,
+  "git_operations": false,
+  "other_agent_outputs_read": false,
+  "isolated_work_directory": "work/reviews"
+}

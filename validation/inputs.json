@@ -1,0 +1,81 @@
+[
+  {
+    "file": "abstract-only.txt",
+    "bytes": 494,
+    "sha256": "03f8cebb799b67076f4bc0f9492258eee3b9bfbcfce06a1fc3390fd07212888f",
+    "kind": "Locally prepared paraphrase of ResNet abstract; this is a deliberately incomplete test fixture, not full paper text"
+  },
+  {
+    "file": "canny.pdf",
+    "bytes": 7321714,
+    "sha256": "23981431296a6da4ba767595954f75094b840e131e69b92459f1b96996020f3e",
+    "title": "A Computational Approach to Edge Detection",
+    "authors": [
+      "John Canny"
+    ],
+    "version": "IEEE TPAMI 8(6), November 1986, printed pp. 679–698; 20 PDF file pages",
+    "source_url": "https://doi.org/10.1109/TPAMI.1986.4767851"
+  },
+  {
+    "file": "canny.txt",
+    "bytes": 135029,
+    "sha256": "efac6d403d625fa8e6fe7f883ecae70ab90d2e9625e302760bedb165b7b3525c"
+  },
+  {
+    "file": "densenet.pdf",
+    "bytes": 844083,
+    "sha256": "94d6252e5508eb047be64bbc7bd095a46064d0b51fc73206d9591578477aaee1",
+    "title": "Densely Connected Convolutional Networks",
+    "authors": [
+      "Gao Huang",
+      "Zhuang Liu",
+      "Laurens van der Maaten",
+      "Kilian Q. Weinberger"
+    ],
+    "version": "CVPR 2017 / CVF Open Access, printed pp. 4700–4708; 9 PDF file pages",
+    "source_url": "https://openaccess.thecvf.com/content_cvpr_2017/papers/Huang_Densely_Connected_Convolutional_CVPR_2017_paper.pdf"
+  },
+  {
+    "file": "densenet.txt",
+    "bytes": 74182,
+    "sha256": "d16e4ebaa5fd505799f3d2e42d08e8be264bbe76cbd10ec94d3f8b1d2e14d03d"
+  },
+  {
+    "file": "resnet-page1.png",
+    "bytes": 447346,
+    "sha256": "f3d78a731aa9885dde8f12b196b1cc81ad99fc94ea0628dee16e2475a9b1090e",
+    "kind": "First page of resnet.pdf rendered by Poppler at 120 DPI; isolated image-only source"
+  },
+  {
+    "file": "resnet.pdf",
+    "bytes": 603123,
+    "sha256": "51b5de45eb0b558b19c3affe49503cff50cb170a32de602983d6e2ec286942a7",
+    "title": "Deep Residual Learning for Image Recognition",
+    "authors": [
+      "Kaiming He",
+      "Xiangyu Zhang",
+      "Shaoqing Ren",
+      "Jian Sun"
+    ],
+    "version": "CVPR 2016 / CVF Open Access, printed pp. 770–778; 9 PDF file pages; referenced detection appendix not included",
+    "source_url": "https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf"
+  },
+  {
+    "file": "resnet.txt",
+    "bytes": 74132,
+    "sha256": "0f1be1d5737f27511355591fc9e1aca3946715bc647b2e15b12f539d499b0257"
+  },
+  {
+    "file": "review.pdf",
+    "bytes": 723649,
+    "sha256": "f6ba04e2d0f413564513fe3950a89b5ea700dbcbdc5a2d46cb898650b0c0b437",
+    "title": "빅데이터 활용을 위한 기계학습 기술동향",
+    "authors": [
+      "임수종",
+      "민옥기"
+    ],
+    "version": "전자통신동향분석 27(5), 2012년 10월, 인쇄 pp. 55–63; PDF 9쪽; 로컬 제공 파일",
+    "source_url_status": "Official publisher PDF retrieved for title/authors/year/page-range verification; behavior run uses supplied local PDF",
+    "source_url": "https://ettrends.etri.re.kr/ettrends/137/0905001757/27-5_055-063.pdf"
+  }
+]

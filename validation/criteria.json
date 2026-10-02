@@ -1,0 +1,45 @@
+{
+  "quick": [
+    "Explains residual addition and the degradation problem without equating it to overfitting.",
+    "Gives evidence with metric/split/protocol/locator; keeps optional study scaffolding out.",
+    "Does not label six-model ImageNet test ensemble as a single-model validation result."
+  ],
+  "study": [
+    "Explains Eq. (1) and dimension-changing shortcut Eq. (2) correctly.",
+    "Important numbers agree with the source and have experimental context and precise locators.",
+    "Separates author hypotheses/limitations from analyst interpretation and includes conceptual questions."
+  ],
+  "critical": [
+    "Ties criticism to inspected evidence or a specific missing test.",
+    "Reports available training settings rather than claiming the paper omits them.",
+    "Separates repeated CIFAR-10 runs from ImageNet uncertainty and missing appendix access."
+  ],
+  "comparison": [
+    "Distinguishes elementwise residual addition from feature concatenation.",
+    "Separates original ResNet from pre-activation variants and mismatched test protocols.",
+    "No universal winner or ranking of incomparable numbers; trade-offs are grounded."
+  ],
+  "non_ml": [
+    "Explains the Canny criteria and mathematical procedure using the paper, without inventing training/inference settings.",
+    "States assumptions and evidence scope; distinguishes proven/derived statements from empirical observations."
+  ],
+  "abstract_only": [
+    "Explicitly limits coverage to supplied abstract material.",
+    "Does not invent full-text methods, seeds, hyperparameters or experimental rigor.",
+    "Asks for missing full text rather than treating inaccessible details as author omissions."
+  ],
+  "missing": [
+    "Attempts source access and explains missing input.",
+    "Does not produce invented paper identity, evidence or analysis."
+  ],
+  "image_only": [
+    "Actually inspects the image rather than treating absence of extracted text as unreadability.",
+    "Limits coverage to first page and labels claims from abstract as such; no unseen table or method claims."
+  ],
+  "review": [
+    "Distinguishes a narrative technology review from an original experiment or systematic review.",
+    "Uses paper publication context rather than PDF conversion metadata as the publication date.",
+    "Attributes reported projects and experiments to their sources and does not invent the review authors training pipeline.",
+    "Links synthesis and limitations to inspected sections, including selection/search information if actually reported."
+  ]
+}
